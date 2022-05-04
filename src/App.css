@@ -5,3 +5,8 @@
 .App-link {
   color: #61dafb;
 }
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
