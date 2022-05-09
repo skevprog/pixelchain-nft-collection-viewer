@@ -3,5 +3,16 @@
 }
 
 .card-img {
-   width: 300px;
+   width: 200px;
+   border-radius: 5px;
+}
+
+.card-description {
+   text-align: center;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   max-width: 150px;
+   margin: 0 auto;
+   margin-top: 5px;
 }

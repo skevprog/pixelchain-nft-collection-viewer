@@ -9,9 +9,9 @@ interface CardProps {
 }
 
 const Card = forwardRef(({ imgSource, name, ...props }: CardProps, ref: any): JSX.Element => (
-  <div ref={ref} {...props}>
+  <div className="card-container" ref={ref} {...props}>
     <img className="card-img" alt={name} src={imgSource} />
-    <p>{name}</p>
+    <p className="card-description">{name}</p>
   </div>
 ));
 

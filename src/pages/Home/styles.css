@@ -1,7 +1,11 @@
+.title {
+  text-align: center;
+}
+
 .images-grid {
    display: flex;
    flex-wrap: wrap;
-   width: 80%;
+   width: 70%;
    margin: 0 auto;
    justify-content: center;
  }
