@@ -1,8 +1,11 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
+
+import './styles.css';
 
 function Loader(): JSX.Element {
   return (
-    <h1>Loading...</h1>
+    <h1 className="loader">Loading...</h1>
   );
 }
 

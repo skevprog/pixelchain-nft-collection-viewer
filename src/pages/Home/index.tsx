@@ -11,6 +11,7 @@ import { API_URL, TOKEN } from '../../api/services';
 import Card from '../../components/Card';
 
 import './styles.css';
+import Loader from '../../components/Loader';
 
 const axiosConfig: AxiosConfig = {
   url: API_URL,
@@ -49,21 +50,25 @@ function Home() {
     [loading, loadMore],
   );
 
+  const renderNfts = () => (nfts.length
+    ? nfts.map((asset: Nft, index: number) => {
+      const isLastElement = nfts.length === index + 1;
+      return isLastElement ? <Card ref={lastElement} name={asset.name} key={asset.id} imgSource={asset.image_url} />
+        : <Card name={asset.name} key={asset.id} imgSource={asset.image_url} />;
+    })
+    : <h2>No data to display</h2>);
+
   if (error) return <h2>{error}</h2>;
-  if (loading && !nfts.length) return <h1>Loading first...</h1>;
 
   return (
     <div>
-      <div className="images-grid">
-        {nfts.length
-          ? nfts.map((asset: Nft, index: number) => {
-            const isLastElement = nfts.length === index + 1;
-            return isLastElement ? <Card className="grid-image" ref={lastElement} name={asset.name} key={asset.id} imgSource={asset.image_url} />
-              : <Card name={asset.name} key={asset.id} imgSource={asset.image_url} />;
-          })
-          : <h2>No data to display</h2>}
-        {loading && <h1>Loading...</h1>}
-      </div>
+      <h1 className="title">Pixelchain</h1>
+      {loading && !nfts.length ? <Loader /> : (
+        <div className="images-grid">
+          {renderNfts()}
+        </div>
+      )}
+      {loading && nfts.length > 0 && <Loader />}
     </div>
   );
 }

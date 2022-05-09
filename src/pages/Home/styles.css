@@ -9,15 +9,6 @@
    margin: 0 auto;
    justify-content: center;
  }
- .grid-image {
-   display: block;
-   flex-basis: 100%;
-   padding: 20px;
-   box-sizing: border-box;
-
-   margin: 5px;
-   background-color: steelblue;
- }
 
  @media only screen and (min-width: 640px) {
    .grid-image {
